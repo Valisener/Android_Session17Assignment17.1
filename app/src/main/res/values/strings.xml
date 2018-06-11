@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assignment17</string>
+
+    <string name="btn_start">Start Play</string>
+    <string name="btn_stop">Stop Play</string>
+
+</resources>
