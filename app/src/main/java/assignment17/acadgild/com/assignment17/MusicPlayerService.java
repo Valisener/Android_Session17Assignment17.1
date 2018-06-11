@@ -49,7 +49,9 @@ public class MusicPlayerService extends Service {
     @Override
     public boolean stopService(Intent name) {
         //create a new pending intent since the assignment said use a pendingintent and return it to the mainactivity
-        //the requirement really confused me i am not sure what you want me to do with the pending intent and you didnt really do any pendingintent in this class session
+        //the requirement really confused me i am not sure what you want me to do with the pending intent and you didnt really do any pendingintent in this class session for 17
+        //I have no idea if i should keep this or remove it but assignment required a pendingintent not sure what it is supposed to do though.
+        //Id ask but it would take too long to wait for a response.
         PendingIntent pendingIntent = PendingIntent.getActivity(this,1,name,PendingIntent.FLAG_UPDATE_CURRENT);
         //send the pending intent
         try {
