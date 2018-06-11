@@ -13,7 +13,6 @@ import android.widget.Toast;
 public class MusicPlayerService extends Service {
     //create a variable to hold the mediaplayer
     private MediaPlayer mediaPlayer;
-//    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
     @Override
     public void onCreate() {
@@ -30,12 +29,6 @@ public class MusicPlayerService extends Service {
         Toast.makeText(MusicPlayerService.this,"Playing Music!",Toast.LENGTH_LONG).show();
         //tells the mediaplayer to start playing music
         mediaPlayer.start();
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-        try{
-            pendingIntent.send();
-        } catch (PendingIntent.CanceledException e) {
-            e.printStackTrace();
-        }
         //returns the on start command super with intent flags and startid
         return super.onStartCommand(intent, flags, startId);
     }
@@ -53,9 +46,10 @@ public class MusicPlayerService extends Service {
         //I have no idea if i should keep this or remove it but assignment required a pendingintent not sure what it is supposed to do though.
         //Id ask but it would take too long to wait for a response.
         PendingIntent pendingIntent = PendingIntent.getActivity(this,1,name,PendingIntent.FLAG_UPDATE_CURRENT);
-        //send the pending intent
+        //try send the pending intent
         try {
             pendingIntent.send();
+            //a catch in case the try fails
         } catch (PendingIntent.CanceledException e) {
             e.printStackTrace();
         }
